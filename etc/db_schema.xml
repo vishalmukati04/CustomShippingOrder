@@ -19,6 +19,11 @@
         <index referenceId="VENDOR_ORDER_STATUS_LOG_TIMESTAMP" indexType="btree">
             <column name="created_at"/>
         </index>
+        <!-- Composite index for better query performance -->
+        <index referenceId="VENDOR_ORDER_STATUS_LOG_COMPOSITE" indexType="btree">
+            <column name="order_increment_id"/>
+            <column name="created_at"/>
+        </index>
     </table>
     <table name="sales_shipment">
         <column name="custom_email_sent" xsi:type="smallint" nullable="false" default="0" comment="Custom Email Sent Flag"/>
